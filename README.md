@@ -15,6 +15,8 @@ Click `Load unpacked extension...` and select the source code folder.
 ## LINKS
 [Chrome.storage.sync example](https://gist.github.com/IzumiSy/765cfd6dc02c79de875e)
 
+[Chrome.storage API](https://developer.chrome.com/extensions/storage)
+
 ## TODO
 * menu
   * font [size, family, color]
