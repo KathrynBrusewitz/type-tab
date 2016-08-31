@@ -1,0 +1,21 @@
+{
+  "name": "Type New Tab",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "A dead simple new tab extension for typing notes.",
+  "author": "KathrynBrusewitz",
+  "incognito": "split",
+  "chrome_url_overrides" : {
+    "newtab": "tab.html"
+  },
+  "icons": {
+    "128": "icon.png"
+  }, 
+  "background": { 
+    "scripts" : ["script.js"],
+    "persistent": true
+  },
+  "permissions": [
+    "storage"
+  ]
+}
