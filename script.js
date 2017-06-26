@@ -1,37 +1,23 @@
-var text;
-
-document.body.onload = function() {
-  chrome.storage.sync.get(["data", "date"], function(object) {
-    if (!chrome.runtime.error) {
-      text = object.data;
-    } else {
-      text = "";
-    }
-    document.getElementById("textArea").value = text;
+const saveText = () => {
+  const text = document.getElementById('textArea').value;
+  chrome.storage.sync.set({ notes: text }, () => {
+    console.log('Saved notes');
   });
+};
 
-  window.setInterval(function() {
-    if (text !== document.getElementById("textArea").value) {
-      console.log("setInterval called");
+const startSaveInterval = ((text) => {
+  let prevText = text;
+  setInterval(() => {
+    if (prevText !== document.getElementById('textArea').value) {
       saveText();
-      text = document.getElementById("textArea").value;
-      console.log("saved changes");
+      prevText = document.getElementById('textArea').value;
     }
-  }, 3000);
+  }, 2000);
+});
 
-  chrome.storage.onChanged.addListener(function(changes, namespace) {
-    for (key in changes) {
-      var storageChange = changes[key];
-      document.getElementById("textArea").value = storageChange.newValue;
-    }
-  });
-}
-
-var saveText = function() {
-  text = document.getElementById("textArea").value;
-  chrome.storage.sync.set({ "data" : text }, function() {
-    if (chrome.runtime.error) {
-      console.log("Runtime error.");
-    }
+document.body.onload = () => {
+  chrome.storage.sync.get({ notes: 'Start writing...' }, (res) => {
+    document.getElementById('textArea').value = res.notes;
+    startSaveInterval(res.notes);
   });
 };
