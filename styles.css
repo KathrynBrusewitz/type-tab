@@ -16,3 +16,7 @@ textarea {
   overflow: auto;
   height: 100%;
 }
+
+.jscolor {
+  shadow: false
+}
