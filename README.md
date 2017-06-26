@@ -15,7 +15,7 @@ This is just a development release. Download or clone this repo as an unpacked e
 
 ## Todo
 - Options menu
-  - font [size, family, color]
-  - background [color, url]
+  - font [size, family, ~~color~~]
+  - background [~~color~~, url]
 - Markdown version
 - Tabs/Pages
