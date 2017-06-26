@@ -1,0 +1,27 @@
+{
+  "name": "type",
+  "version": "1.0.0",
+  "description": "A dead simple new tab Chrome extension for typing and saving notes.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KathrynBrusewitz/type.git"
+  },
+  "author": "Kathryn Brusewitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KathrynBrusewitz/type/issues"
+  },
+  "homepage": "https://github.com/KathrynBrusewitz/type#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.0"
+  },
+  "env": {
+    "browser": true
+  }
+}
