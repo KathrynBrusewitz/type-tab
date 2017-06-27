@@ -21,10 +21,12 @@ const loadOptions = () => {
   chrome.storage.sync.get({
     backgroundColor: 'fcfcfc',
     fontColor: '2b2b2b',
+    fontSize: '14',
   }, (res) => {
     Object.assign(textArea.style, {
       backgroundColor: `#${res.backgroundColor}`,
       color: `#${res.fontColor}`,
+      fontSize: `${res.fontSize}px`,
     });
     Object.assign(document.body.style, {
       backgroundColor: `#${res.backgroundColor}`,
