@@ -2,22 +2,60 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Type New Tab Options</title>
+  <title>Type Tab Options</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <section>
+    <div class="option">
+      <label for="fontColor">Font Color</label>
+      <input id="fontColor" class="jscolor" />
+    </div>
 
-  <div>
-    Background Color: <input id="backgroundColor" class="jscolor">
-  </div>
-  <div>
-    Font Color: <input id="fontColor" class="jscolor">
-  </div>
+    <div class="option">
+      <label for="fontSize">Font Size</label>
+      <input id="fontSize" type="number" min="8" max="120" /> px
+    </div>
 
-  <div id="status"></div>
-  <button id="save">Save</button>
+    <div class="option">
+      <label for="fontFamily">Font Family</label>
+      <input id="fontFamily" type="text" />
+      <small>Enter any font family you like that is available on <a href="https://fonts.google.com/">Google Fonts</a>, e.g. "Open Sans"</small>
+    </div>
 
+    <div class="option">
+      <label for="lineHeight">Line Height</label>
+      <input id="lineHeight" type="number" min="0.5" max="5" /> rem
+    </div>
+
+    <div class="option">
+      <label for="spellcheck">Enable Spellcheck</label>
+      <input id="spellcheck" type="checkbox">
+    </div>
+
+    <div class="option">
+      <label for="backgroundColor">Background Color</label>
+      <input id="backgroundColor" class="jscolor" />
+    </div>
+
+    <div class="option">
+      <label for="backgroundImageURL">Background Image URL</label>
+      <input id="backgroundImageURL" type="url" />
+    </div>
+  </section>
+
+  <section class="buttons">
+    <button id="save">Save Settings</button>
+    <button id="reset">Reset to Defaults</button>
+    <div id="status" class="status"></div>
+  </section>
+
+  <section class="attribution">
+    <a href="http://bruk.io/">Built by Kathryn Brusewitz</a> - <a href="https://github.com/KathrynBrusewitz/type">Fork Type on GitHub</a>
+  </section>
+
+  <script src="defaults.js"></script>
   <script src="jscolor.min.js"></script>
   <script src="options.js"></script>
 

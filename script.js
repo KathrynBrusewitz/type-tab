@@ -1,8 +1,9 @@
 const textArea = document.getElementById('textArea');
+const fontFace = document.getElementById('fontFace');
 
 const saveTextToStorage = () => {
   chrome.storage.sync.set({ notes: textArea.value }, () => {
-    console.log('All changes saved');
+    // console.log('All changes saved');
   });
 };
 
@@ -21,14 +22,24 @@ const loadOptions = () => {
   chrome.storage.sync.get({
     backgroundColor: 'fcfcfc',
     fontColor: '2b2b2b',
+    fontSize: '14',
+    fontFamily: 'Roboto',
+    lineHeight: '1.5',
+    spellcheck: false,
+    backgroundImageURL: '',
   }, (res) => {
+    fontFace.href = `https://fonts.googleapis.com/css?family=${res.fontFamily.split(' ').join('+')}`;
     Object.assign(textArea.style, {
-      backgroundColor: `#${res.backgroundColor}`,
       color: `#${res.fontColor}`,
+      fontSize: `${res.fontSize}px`,
+      fontFamily: `${res.fontFamily}, sans-serif`,
+      lineHeight: `${res.lineHeight}rem`,
     });
-    Object.assign(document.body.style, {
-      backgroundColor: `#${res.backgroundColor}`,
-    });
+    textArea.spellcheck = res.spellcheck;
+    document.body.style.backgroundColor = `#${res.backgroundColor}`;
+    if (res.backgroundImageURL.length > 0) {
+      document.body.style.backgroundImage = `url(${res.backgroundImageURL})`;
+    }
   });
 };
 
