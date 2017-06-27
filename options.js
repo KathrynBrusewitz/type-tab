@@ -4,6 +4,7 @@ const fontSize = document.getElementById('fontSize');
 const fontFamily = document.getElementById('fontFamily');
 const lineHeight = document.getElementById('lineHeight');
 const spellcheck = document.getElementById('spellcheck');
+const backgroundImageURL = document.getElementById('backgroundImageURL');
 const status = document.getElementById('status');
 
 // Save options to chrome.storage.sync
@@ -15,6 +16,7 @@ const saveOptions = () => {
     fontFamily: fontFamily.value,
     lineHeight: lineHeight.value,
     spellcheck: spellcheck.checked,
+    backgroundImageURL: backgroundImageURL.value,
   }, () => {
     // Let user know options were saved
     status.textContent = 'Settings have been saved.';
@@ -38,6 +40,7 @@ const restoreOptions = () => {
     fontFamily: 'Roboto',
     lineHeight: '4',
     spellcheck: false,
+    backgroundImageURL: '',
   }, (res) => {
     backgroundColor.value = res.backgroundColor;
     fontColor.value = res.fontColor;
@@ -45,6 +48,7 @@ const restoreOptions = () => {
     fontFamily.value = res.fontFamily;
     lineHeight.value = res.lineHeight;
     spellcheck.checked = res.spellcheck;
+    backgroundImageURL.value = res.backgroundImageURL;
     Object.assign(backgroundColor.style, {
       backgroundColor: `#${res.backgroundColor}`,
     });

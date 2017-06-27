@@ -2,7 +2,20 @@ html, #app, textarea {
   height: 100%;
 }
 
+#app {
+  padding: 0;
+  margin: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 textarea {
+  background: transparent;
   border-color: transparent;
   border-style: none;
   left: 0;
