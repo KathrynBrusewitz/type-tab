@@ -7,16 +7,64 @@
 </head>
 
 <body>
+  <section>
+    <div class="option">
+      <label for="fontColor">Font Color</label>
+      <input id="fontColor" class="jscolor" />
+    </div>
 
-  <div>
-    Background Color: <input id="backgroundColor" class="jscolor">
-  </div>
-  <div>
-    Font Color: <input id="fontColor" class="jscolor">
-  </div>
+    <div class="option">
+      <label for="fontSize">Font Size</label>
+      <input id="fontSize" type="number" min="2" max="40" /> px
+    </div>
 
-  <div id="status"></div>
-  <button id="save">Save</button>
+    <div class="option">
+      <label for="fontFamily">Font Family</label>
+      <select id="fontFamily">
+        <option value="Roboto">Roboto</option>
+        <option value="Droid Serif">Droid Serif</option>
+        <option value="Open Sans">Open Sans</option>
+        <option value="Lobster">Lobster</option>
+        <option value="Indie Flower">Indie Flower</option>
+        <option value="Inconsolata">Inconsolata</option>
+      </select>
+    </div>
+
+    <div class="option">
+      <label for="lineHeight">Line Height</label>
+      <input id="lineHeight" type="number" min="-10" max="20" /> px
+    </div>
+
+    <div class="option">
+      <label for="spellcheck">Enable Spellcheck</label>
+      <input id="spellcheck" type="checkbox">
+    </div>
+
+    <div class="option">
+      <label for="backgroundColor">Background Color</label>
+      <input id="backgroundColor" class="jscolor" />
+    </div>
+
+    <div class="option">
+      <label for="backgroundImageUpload">Background Image</label>
+      <input id="backgroundImageUpload" type="file" />
+    </div>
+
+    <div class="option">
+      <label for="backgroundImageURL">Background URL</label>
+      <input id="backgroundImageURL" type="url" class="full-width" />
+    </div>
+  </section>
+
+  <section class="buttons">
+    <button id="save">Save Settings</button>
+    <button id="reset">Reset to Defaults</button>
+    <div id="status" class="status"></div>
+  </section>
+
+  <section class="attribution">
+    <a href="http://bruk.io/">Built by Kathryn Brusewitz</a> - <a href="https://github.com/KathrynBrusewitz/type">Fork Type on GitHub</a>
+  </section>
 
   <script src="jscolor.min.js"></script>
   <script src="options.js"></script>

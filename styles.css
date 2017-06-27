@@ -1,20 +1,59 @@
-html, body {
+html, #app, textarea {
   height: 100%;
 }
 
 textarea {
-  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
-  font-size: 1.5em;
-  line-height: 1.3em;
-  left: 0;
-  top: 0;
-  right: 0;
-  width: 100%;
-  outline: none;
-  border-style: none;
   border-color: transparent;
+  border-style: none;
+  left: 0;
+  outline: none;
   overflow: auto;
-  height: 100%;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+section {
+  margin: 10px 0;
+}
+
+.option {
+  padding: 10px 0;
+}
+
+.option label {
+  padding-right: 10px;
+}
+
+.status {
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  visibility: none;
+}
+
+.status-save {
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  color: #3c763d;
+}
+
+.status-reset {
+  background-color: #d9edf7;
+  border-color: #bcdff1;
+  color: #31708f;
+}
+
+.attribution {
+  border-top: 1px solid #f0f0f0;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.attribution a {
+  color: #6abaf7;
+  text-decoration: none;
 }
 
 .jscolor {

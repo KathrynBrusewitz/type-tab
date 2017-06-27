@@ -9,10 +9,14 @@ const saveOptions = () => {
     fontColor: fontColor.value,
   }, () => {
     // Let user know options were saved
-    status.textContent = 'Options saved.';
+    status.textContent = 'Settings have been saved.';
+    status.classList.add('status-save');
+    status.style.visibility = 'visible';
     setTimeout(() => {
       status.textContent = '';
-    }, 750);
+      status.style.visibility = 'hidden';
+      status.classList.remove('status-save');
+    }, 2000);
   });
 };
 
