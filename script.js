@@ -3,7 +3,7 @@ const fontFace = document.getElementById('fontFace');
 
 const saveTextToStorage = () => {
   chrome.storage.sync.set({ notes: textArea.value }, () => {
-    console.log('All changes saved');
+    // console.log('All changes saved');
   });
 };
 
@@ -24,7 +24,7 @@ const loadOptions = () => {
     fontColor: '2b2b2b',
     fontSize: '14',
     fontFamily: 'Roboto',
-    lineHeight: '4',
+    lineHeight: '1.5',
     spellcheck: false,
     backgroundImageURL: '',
   }, (res) => {

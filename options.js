@@ -26,8 +26,34 @@ const saveOptions = () => {
       status.textContent = '';
       status.style.visibility = 'hidden';
       status.classList.remove('status-save');
-    }, 2000);
+    }, 4000);
   });
+};
+
+// Reset options to defaults
+const resetOptions = () => {
+  backgroundColor.value = 'fcfcfc';
+  fontColor.value = '2b2b2b';
+  fontSize.value = '14';
+  fontFamily.value = 'Roboto';
+  lineHeight.value = '1.5';
+  spellcheck.checked = false;
+  backgroundImageURL.value = '';
+  Object.assign(backgroundColor.style, {
+    backgroundColor: `#${backgroundColor.value}`,
+  });
+  Object.assign(fontColor.style, {
+    backgroundColor: `#${fontColor.value}`,
+  });
+  // Let user know options were reset
+  status.textContent = 'Settings have been reset. Remember to save your changes.';
+  status.classList.add('status-reset');
+  status.style.visibility = 'visible';
+  setTimeout(() => {
+    status.textContent = '';
+    status.style.visibility = 'hidden';
+    status.classList.remove('status-reset');
+  }, 4000);
 };
 
 // Restore option states using the preferences stored in chrome.storage
@@ -38,7 +64,7 @@ const restoreOptions = () => {
     fontColor: '2b2b2b',
     fontSize: '14',
     fontFamily: 'Roboto',
-    lineHeight: '4',
+    lineHeight: '1.5',
     spellcheck: false,
     backgroundImageURL: '',
   }, (res) => {
@@ -60,3 +86,4 @@ const restoreOptions = () => {
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);
+document.getElementById('reset').addEventListener('click', resetOptions);
