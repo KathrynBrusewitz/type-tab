@@ -1,4 +1,5 @@
 const textArea = document.getElementById('textArea');
+const fontFace = document.getElementById('fontFace');
 
 const saveTextToStorage = () => {
   chrome.storage.sync.set({ notes: textArea.value }, () => {
@@ -22,11 +23,16 @@ const loadOptions = () => {
     backgroundColor: 'fcfcfc',
     fontColor: '2b2b2b',
     fontSize: '14',
+    fontFamily: 'Roboto',
+    lineHeight: '4',
   }, (res) => {
+    fontFace.href = `https://fonts.googleapis.com/css?family=${res.fontFamily.split(' ').join('+')}`;
     Object.assign(textArea.style, {
       backgroundColor: `#${res.backgroundColor}`,
       color: `#${res.fontColor}`,
       fontSize: `${res.fontSize}px`,
+      fontFamily: `${res.fontFamily}, sans-serif`,
+      lineHeight: `${res.lineHeight}rem`,
     });
     Object.assign(document.body.style, {
       backgroundColor: `#${res.backgroundColor}`,

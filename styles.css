@@ -25,6 +25,11 @@ section {
   padding-right: 10px;
 }
 
+.option small {
+  padding-top: 5px;
+  display: block;
+}
+
 .status {
   border: 1px solid transparent;
   border-radius: 0.25rem;

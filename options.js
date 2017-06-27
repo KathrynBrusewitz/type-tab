@@ -1,6 +1,8 @@
 const backgroundColor = document.getElementById('backgroundColor');
 const fontColor = document.getElementById('fontColor');
 const fontSize = document.getElementById('fontSize');
+const fontFamily = document.getElementById('fontFamily');
+const lineHeight = document.getElementById('lineHeight');
 const status = document.getElementById('status');
 
 // Save options to chrome.storage.sync
@@ -9,6 +11,8 @@ const saveOptions = () => {
     backgroundColor: backgroundColor.value,
     fontColor: fontColor.value,
     fontSize: fontSize.value,
+    fontFamily: fontFamily.value,
+    lineHeight: lineHeight.value,
   }, () => {
     // Let user know options were saved
     status.textContent = 'Settings have been saved.';
@@ -29,18 +33,19 @@ const restoreOptions = () => {
     backgroundColor: 'fcfcfc',
     fontColor: '2b2b2b',
     fontSize: '14',
+    fontFamily: 'Roboto',
+    lineHeight: '4',
   }, (res) => {
     backgroundColor.value = res.backgroundColor;
     fontColor.value = res.fontColor;
     fontSize.value = res.fontSize;
+    fontFamily.value = res.fontFamily;
+    lineHeight.value = res.lineHeight;
     Object.assign(backgroundColor.style, {
       backgroundColor: `#${res.backgroundColor}`,
     });
     Object.assign(fontColor.style, {
       backgroundColor: `#${res.fontColor}`,
-    });
-    Object.assign(fontSize.style, {
-      fontSize: `#${res.fontSize}`,
     });
   });
 };
