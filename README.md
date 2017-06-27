@@ -1,5 +1,5 @@
 # Type New Tab
-A dead simple and customizable new tab Chrome extension for typing and saving notes. Syncs across browsers wherever you're signed into your Google account.
+A dead simple and customizable new tab Chrome extension for typing and saving notes. Auto-saves as you type and syncs across browsers wherever you're signed into your Google account.
 
 Options include:
 - Font color
@@ -17,6 +17,14 @@ This is just a development release. Download or clone this repo as an unpacked e
 2. Open `chrome://extensions/` or select the menu `Window > Extensions`.
 3. Enable developer mode at top right.
 4. Click `Load unpacked extension...` and select the source code folder.
+
+## Screenshots
+
+![Type New Tab in Monospace](./screenshots/monospace.jpg)
+
+![Type New Tab in Sans-Serif](./screenshots/sans-serif.jpg)
+
+![Type New Tab Options](./screenshots/options.jpg)
 
 ## Links
 - [Chrome.storage.sync example](https://gist.github.com/IzumiSy/765cfd6dc02c79de875e)
