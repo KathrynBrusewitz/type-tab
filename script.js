@@ -25,6 +25,7 @@ const loadOptions = () => {
     fontSize: '14',
     fontFamily: 'Roboto',
     lineHeight: '4',
+    spellcheck: false,
   }, (res) => {
     fontFace.href = `https://fonts.googleapis.com/css?family=${res.fontFamily.split(' ').join('+')}`;
     Object.assign(textArea.style, {
@@ -34,6 +35,7 @@ const loadOptions = () => {
       fontFamily: `${res.fontFamily}, sans-serif`,
       lineHeight: `${res.lineHeight}rem`,
     });
+    textArea.spellcheck = res.spellcheck;
     Object.assign(document.body.style, {
       backgroundColor: `#${res.backgroundColor}`,
     });
