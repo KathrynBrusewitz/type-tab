@@ -10,18 +10,31 @@ html, #app, textarea {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
-textarea {
+#textArea, #fakeTextArea {
   background: transparent;
   border-color: transparent;
   border-style: none;
   left: 0;
   outline: none;
   overflow: auto;
+  position: absolute;
   right: 0;
   top: 0;
   width: 100%;
+}
+
+#textArea {
+  z-index: 20;
+}
+
+#fakeTextArea {
+  opacity: .2;
+  overflow: hidden;
+  z-index: 1;
 }
 
 section {

@@ -3,6 +3,7 @@ const fontColor = document.getElementById('fontColor');
 const fontSize = document.getElementById('fontSize');
 const fontFamily = document.getElementById('fontFamily');
 const lineHeight = document.getElementById('lineHeight');
+const enableLineWidth = document.getElementById('enableLineWidth');
 const spellcheck = document.getElementById('spellcheck');
 const backgroundImageURL = document.getElementById('backgroundImageURL');
 const status = document.getElementById('status');
@@ -15,6 +16,7 @@ const saveOptions = () => {
     fontSize: fontSize.value,
     fontFamily: fontFamily.value,
     lineHeight: lineHeight.value,
+    enableLineWidth: enableLineWidth.checked,
     spellcheck: spellcheck.checked,
     backgroundImageURL: backgroundImageURL.value,
   }, () => {
@@ -37,6 +39,7 @@ const resetOptions = () => {
   fontSize.value = '14';
   fontFamily.value = 'Roboto';
   lineHeight.value = '1.5';
+  enableLineWidth.checked = false;
   spellcheck.checked = false;
   backgroundImageURL.value = '';
   Object.assign(backgroundColor.style, {
@@ -65,6 +68,7 @@ const restoreOptions = () => {
     fontSize: '14',
     fontFamily: 'Roboto',
     lineHeight: '1.5',
+    enableLineWidth: false,
     spellcheck: false,
     backgroundImageURL: '',
   }, (res) => {
@@ -73,6 +77,7 @@ const restoreOptions = () => {
     fontSize.value = res.fontSize;
     fontFamily.value = res.fontFamily;
     lineHeight.value = res.lineHeight;
+    enableLineWidth.checked = res.enableLineWidth;
     spellcheck.checked = res.spellcheck;
     backgroundImageURL.value = res.backgroundImageURL;
     Object.assign(backgroundColor.style, {

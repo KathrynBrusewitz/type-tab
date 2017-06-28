@@ -1,5 +1,18 @@
 const textArea = document.getElementById('textArea');
+const fakeTextArea = document.getElementById('fakeTextArea');
 const fontFace = document.getElementById('fontFace');
+
+const generateLineWidth = (chars) => {
+  if (chars < 1) {
+    throw new Error();
+  }
+  let string = new Array(chars).join(' ');
+  string += '| \n';
+  for (let i = 0; i < 10; i += 1) {
+    string += string;
+  }
+  return string;
+};
 
 const saveTextToStorage = () => {
   chrome.storage.sync.set({ notes: textArea.value }, () => {
@@ -25,6 +38,7 @@ const loadOptions = () => {
     fontSize: '14',
     fontFamily: 'Roboto',
     lineHeight: '1.5',
+    enableLineWidth: false,
     spellcheck: false,
     backgroundImageURL: '',
   }, (res) => {
@@ -36,6 +50,14 @@ const loadOptions = () => {
       lineHeight: `${res.lineHeight}rem`,
     });
     textArea.spellcheck = res.spellcheck;
+    if (res.enableLineWidth) {
+      fakeTextArea.value = generateLineWidth(80); // this needs to become a line
+      Object.assign(fakeTextArea.style, {
+        fontSize: `${res.fontSize}px`,
+        fontFamily: `${res.fontFamily}, sans-serif`,
+        lineHeight: `${res.lineHeight}rem`,
+      });
+    }
     document.body.style.backgroundColor = `#${res.backgroundColor}`;
     if (res.backgroundImageURL.length > 0) {
       document.body.style.backgroundImage = `url(${res.backgroundImageURL})`;
